@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {DefaultService} from '../../services/default.service';
 
 @Component({
   selector: 'app-main-component',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private defaultService: DefaultService) {
+  }
 
   ngOnInit(): void {
   }
 
+  work = (): void => {
+    this.defaultService.doSmthing();
+  }
 }
