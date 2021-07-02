@@ -14,7 +14,8 @@ export class MainComponentComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  work = (): void => {
+  work = (value): void => {
     this.defaultService.doSmthing();
+    console.log(value);
   }
 }

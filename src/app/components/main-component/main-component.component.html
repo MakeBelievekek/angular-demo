@@ -2,6 +2,6 @@
 >
 </app-child-component>
 
-<ng-template #chadButton>
-  <button (click)="work()">Click me!</button>
+<ng-template #chadButton let-value="value">
+  <button (click)="work(value)">Click me!</button>
 </ng-template>

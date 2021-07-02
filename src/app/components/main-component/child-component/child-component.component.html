@@ -1,2 +1,31 @@
+<div style="width: 100px; height: 100px; background-color: blue; display: inline-block; margin-right: 30px;"
+     (click)="setSelectedValue(1)"
+></div>
+<div style="width: 100px; height: 100px; background-color: red; display: inline-block"
+     (click)="setSelectedValue(2)"
+></div>
+<!--ha vannak extrák de be van állítva érték akkor csak azt veszi ki-->
+<ng-container
+  *ngTemplateOutlet="this.buttonTemplate;context:this.ctx">
+</ng-container>
+
+<!--  ez is renben megy -->
+<!--
+<ng-container
+  *ngTemplateOutlet="this.buttonTemplate;context:{$implicit: this.selectedValue}">
+</ng-container>
+-->
+
+<!-- müködik csak valamiért a getter 2x hivodik meg  -->
+<!--
  <ng-template [ngTemplateOutlet]="this.buttonTemplate"
+              [ngTemplateOutletContext]="this.getSelectedValue"
  ></ng-template>
+-->
+
+<!-- ez is müködik  -->
+<!--
+ <ng-template [ngTemplateOutlet]="this.buttonTemplate"
+              [ngTemplateOutletContext]="{$implicit: this.selectedValue}"
+ ></ng-template>
+-->
